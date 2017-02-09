@@ -37,7 +37,7 @@ module AttributesHash::AttributesHash
       root = options[:root]
       if root.present?
         if root == true
-          root = respond_to?(default_attributes_root) ? default_attributes_root : self.class.name.underscore
+          root = respond_to?(:default_attributes_root) ? default_attributes_root : self.class.name.underscore
           root = root.pluralize if respond_to?(:each)
         end
         attributes_hash = { root.to_sym => attributes_hash }
