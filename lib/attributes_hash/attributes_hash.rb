@@ -119,7 +119,7 @@ module AttributesHash::AttributesHash
         end
       end
 
-      processed_attributes.any? ? processed_attributes : default_available_attributes
+      processed_attributes.any? ? processed_attributes : (default_available_attributes & current_available_attributes)
     end
   end
 end
