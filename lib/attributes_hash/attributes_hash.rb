@@ -28,8 +28,8 @@ module AttributesHash::AttributesHash
             value = instance_exec(&attribute_serializer)
           else
             value = attribute_value(attribute_name)
-            value = value.to_attributes_hash(nested_attributes, root: false) if value.respond_to?(:to_attributes_hash)
           end
+          value = value.to_attributes_hash(nested_attributes, root: false) if value.respond_to?(:to_attributes_hash)
           attributes_hash[attribute_name] = value
         end
       end
